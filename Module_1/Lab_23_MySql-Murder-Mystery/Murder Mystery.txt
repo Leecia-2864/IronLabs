@@ -1,0 +1,15 @@
+SELECT p.name, p.id, membership_id,check_in_date as cid, 
+membership_status, plate_number, transcript
+FROM get_fit_now_member gfnm
+JOIN person p
+  ON gfnm.person_id = p.id
+JOIN drivers_license dl
+  ON p.license_id = dl.id
+JOIN get_fit_now_check_in gfnc
+  ON gfnc.membership_id = gfnm.id
+JOIN Interview
+  ON Interview.person_id = p.id
+WHERE membership_id like '48Z%' and membership_status = "gold";
+
+
+The nale of the killer is jerry bowers
